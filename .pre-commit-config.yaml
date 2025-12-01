@@ -13,3 +13,19 @@ repos:
       - id: ruff
         args: [ --fix ]
       - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: python -m uv run pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: mypy
+        name: mypy
+        entry: python -m uv run mypy src/binancecoloresearch
+        language: system
+        pass_filenames: false
+        always_run: true
